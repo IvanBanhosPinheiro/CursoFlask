@@ -1,0 +1,25 @@
+<!--Indicamos que hereda de la base.html-->
+{% extends './base.html' %}
+
+<!--defines el contenido del bloque contenido-->
+{% block contenido %}
+<p>Estamos en lenguajes</p>
+<ul>
+    {% if data.hayLenguajes %}
+        {% for leng in data.lenguajes %}
+            <li>{{ leng }}</li>
+        {% endfor %}
+    {% else %}
+        <h2>No existen lenguajes</h2>
+    {% endif %}
+</ul>
+<ul>
+    {% if data.lenguajes|length > 0 %}
+        {% for leng in data.lenguajes %}
+            <li>{{ leng }}</li>
+        {% endfor %}
+    {% else %}
+        <h2>No existen lenguajes</h2>
+    {% endif %}
+</ul>
+{% endblock %}

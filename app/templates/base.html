@@ -1,0 +1,22 @@
+<!--La carpeta tiene que llamarse templates para que flask la reconozca por defecto-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- accedemos al diccionario enviado y cogemos los datos que necesitemos-->
+    <title>{{ data.titulo }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <!--Los nombres por los que son llamados son los nombres de los metodos no debe ir la ruta-->
+    <a href="{{ url_for('index')}}">Index</a>
+    <a href="{{ url_for('contacto')}}">Contactos</a>
+    <hr>
+    <h1>{{data.encabezado}}</h1>
+    <!--reutiliza todo el html para usar la misma base en todas las partes-->
+    {% block contenido %}
+    {% endblock %}
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>
